@@ -1,0 +1,15 @@
+{
+  "name": "futility",
+  "version": "0.0.1",
+  "description": "",
+  "main": "futility.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "./node_modules/.bin/jsdoc futility.js -d ./docs -R README.md"
+  },
+  "author": "Fraasi <fraasi.gh@gmail.com> (https://github.com/fraasi/)",
+  "license": "ISC",
+  "devDependencies": {
+    "jsdoc": "^3.5.5"
+  }
+}
