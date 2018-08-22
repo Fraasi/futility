@@ -10,6 +10,9 @@
   "author": "Fraasi <fraasi.gh@gmail.com> (https://github.com/fraasi/)",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
     "jsdoc": "^3.5.5"
   }
 }

@@ -1,18 +1,18 @@
-
 /**
- * @module
+ * Futility
+ * @module futility
 */
 module.exports = {
-	/** 
+	/**
 	 * Swap Object keys and values
 	 * @param {object} obj
 	 * @returns {object} Object with keys & values swapped
 	 */
-	swapObject: function (obj) {
+	swapObject: (obj) => {
 		const swapped = {};
-		for (let key in obj) {
+		Object.keys(obj).forEach((key) => {
 			swapped[obj[key]] = key;
-		}
+		});
 		return swapped;
 	},
 
@@ -22,14 +22,15 @@ module.exports = {
 	 * @param {object} obj
 	 * @returns {object} Cloned object
 	 */
-	cloneObject: function (obj) {
+	cloneObject: (obj) => {
 		if (obj === null || typeof obj !== 'object') {
-			return obj
+			return obj;
 		}
 		const temp = obj.constructor(); // give temp the original obj's constructor
-		for (let key in obj) {
+		console.log(this);
+		Object.keys(obj).forEach((key) => {
 			temp[key] = this.cloneObject(obj[key]);
-		}
+		});
 		return temp;
 	},
 
@@ -42,8 +43,8 @@ module.exports = {
 	 * @param {number} stop2 Max value for new range
 	 * @returns {number} Calculated n for given range
 	 */
-	p5map: function (n, start1, stop1, start2, stop2) {
-		return ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2
+	p5map(n, start1, stop1, start2, stop2) {
+		return ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
 	},
 
 	/**
@@ -51,10 +52,10 @@ module.exports = {
 	 * @param {number} num
 	 * @param {number} ofnum
 	 * @param {number} [fix=0] how many decimals
-	 * @returns {number} ( (num / ofnum) * 100 ).toFixed(fix) 
+	 * @returns {number} ( (num / ofnum) * 100 ).toFixed(fix)
 	 */
-	PercentageOf: function (num, ofnum, fix=0) {
-		return ((num / ofnum) * 100).toFixed(fix)
+	PercentageOf(num, ofnum, fix = 0) {
+		return ((num / ofnum) * 100).toFixed(fix);
 	},
 
 	/**
@@ -63,8 +64,10 @@ module.exports = {
 	 * @param {*} b
 	 * @returns {array} Array with values swapped -> [b, a]
 	 */
-	swapValues: function (a, b) {
-		return [a, b] = [b, a];
+	swapValues(a, b) {
+		const [c, d] = [b, a];
+		console.log(c, d);
+		return [c, d];
 	},
 
 	/**
@@ -73,19 +76,18 @@ module.exports = {
 	 * @param {boolean} [long=false] Boolean to choose short or long display
 	 * @returns {string} short: 14d 6h 53m 0s or long: 14 days, 6 hours, 53 minutes, 0 seconds
 	 */
-	secondsToDhms: function (secs, long = false) {
-		if (isNaN(secs)) return 'secondsToHms param not a number!'
-		const d = Math.floor(secs / (3600 * 24))
-		const h = Math.floor(secs / 3600 % 24)
-		const m = Math.floor(secs % 3600 / 60)
-		const s = Math.floor(secs % 3600 % 60)
+	secondsToDhms(secs, long = false) {
+		if (isNaN(secs)) return 'secondsToHms param not a number!';
+		const d = Math.floor(secs / (3600 * 24));
+		const h = Math.floor((secs / 3600) % 24);
+		const m = Math.floor(secs % (3600 / 60));
+		const s = Math.floor(secs % 3600 % 60);
 
-		const dDisplay = d > 0 ? d + (long ? (d === 1 ? ' day, ' : ' days, ') : 'd ') : ''
-		const hDisplay = h >= 0 ? h + (long ? (h === 1 ? ' hour, ' : ' hours, ') : 'h ') : ''
-		const mDisplay = m >= 0 ? m + (long ? (m === 1 ? ' minute, ' : ' minutes, ') : 'm ') : ''
-		const sDisplay = s >= 0 ? s + (long ? (s === 1 ? ' second' : ' seconds') : 's') : ''
-		return dDisplay + hDisplay + mDisplay + sDisplay
-	}
+		const dDisplay = d > 0 ? d + (long ? (d === 1 ? ' day, ' : ' days, ') : 'd ') : '';
+		const hDisplay = h >= 0 ? h + (long ? (h === 1 ? ' hour, ' : ' hours, ') : 'h ') : '';
+		const mDisplay = m >= 0 ? m + (long ? (m === 1 ? ' minute, ' : ' minutes, ') : 'm ') : '';
+		const sDisplay = s >= 0 ? s + (long ? (s === 1 ? ' second' : ' seconds') : 's') : '';
+		return dDisplay + hDisplay + mDisplay + sDisplay;
+	},
 
-}
-
+};
