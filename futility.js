@@ -17,25 +17,27 @@ module.exports = {
 	},
 
 	/**
-	 * Recursive function to clone an object. If a non object parameter
+	 * Recursive function to deep clone an object. If a non object parameter
 	 * is passed in, that parameter is returned and no recursion occurs.
-	 * @param {object} obj
+	 * @param {(object|array)} obj Object to be cloned
 	 * @returns {object} Cloned object
 	 */
-	cloneObject: (obj) => {
-		if (obj === null || typeof obj !== 'object') {
-			return obj;
+	cloneObject: function clone(obj) {
+		if (obj === null || typeof obj !== 'object') return obj;
+		if (obj instanceof Date) {
+			const copy = new Date();
+			copy.setTime(obj.getTime());
+			return copy;
 		}
-		const temp = obj.constructor(); // give temp the original obj's constructor
-		console.log(this);
+		const temp = new obj.constructor(); // give temp the original obj's constructor
 		Object.keys(obj).forEach((key) => {
-			temp[key] = this.cloneObject(obj[key]);
+			temp[key] = clone(obj[key]);
 		});
 		return temp;
 	},
 
 	/**
-	 * p5.prototype.map()
+	 * p5.prototype.map() - https://p5js.org/reference/#/p5/map
 	 * @param {number} n A positive or negative number
 	 * @param {number} start1 Min possible value for n
 	 * @param {number} stop1 Max possible value for n
@@ -43,7 +45,7 @@ module.exports = {
 	 * @param {number} stop2 Max value for new range
 	 * @returns {number} Calculated n for given range
 	 */
-	p5map(n, start1, stop1, start2, stop2) {
+	mapN(n, start1, stop1, start2, stop2) {
 		return ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
 	},
 
@@ -66,7 +68,6 @@ module.exports = {
 	 */
 	swapValues(a, b) {
 		const [c, d] = [b, a];
-		console.log(c, d);
 		return [c, d];
 	},
 
@@ -90,4 +91,21 @@ module.exports = {
 		return dDisplay + hDisplay + mDisplay + sDisplay;
 	},
 
+	/**
+	 * dateToHMS
+	 * @param {(object|number)} [date=new Date()] Date object or date in milliseconds
+	 * @returns {string} Time in HH:MM:SS format
+	 */
+	dateToHMS: (date = new Date()) => {
+		if (!(date instanceof Date) && isNaN(date)) {
+			return 'dateToHMS param must be Date object or number!';
+		}
+		if (!isNaN(date)) {
+			date = new Date(date);
+		}
+		const H = date.getHours();
+		const M = date.getMinutes();
+		const S = date.getSeconds();
+		return `${H < 10 ? `0${H}` : H}:${M < 10 ? `0${M}` : M}:${S < 10 ? `0${S}` : S}`;
+	},
 };

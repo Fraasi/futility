@@ -6,6 +6,6 @@
         "no-nested-ternary": 0,
         "no-restricted-globals": 0,
         "no-console": 0,
-        "no-restricted-syntax": ["warn", "BinaryExpression[operator='in']"]
+        "no-param-reassign": 0
     }
 }

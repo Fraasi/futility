@@ -7,13 +7,11 @@ Just to keep track of these functions and have an easy way to use when needed ag
 `$ npm i fraasi/futility`  
 
 ```javascript
-const F = require('futility')
+const F = require('futility') // F contains all the methods
 ```  
-F contains all the methods
 
 ## Docs generated with jsDocs  
-Found [here](https://fraasi.github.io/futility/).
+Found [here](https://fraasi.github.io/futility/module-futility.html).
 
 ## Todo
-* [ ] add 12:12:12 time to secondsToDhms
-* [ ] learn a testing library and write some tests
+* [ ] learn a testing library and write some proper tests
