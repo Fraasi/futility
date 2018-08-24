@@ -1,6 +1,5 @@
-## Little utility library
-
-Just to keep track of these functions and have an easy way to use when needed again.
+## Futility
+Little utility library
 
 ## Usage
 
@@ -10,8 +9,7 @@ Just to keep track of these functions and have an easy way to use when needed ag
 const F = require('futility') // F contains all the methods
 ```  
 
-## Docs generated with jsDocs  
-Found [here](https://fraasi.github.io/futility/module-futility.html).
+## [Documentation](https://fraasi.github.io/futility/)
 
 ## Todo
 * [ ] learn a testing library and write some proper tests

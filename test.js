@@ -1,6 +1,6 @@
 
 /* eslint-disable */
-const F = require('./futility.js');
+const F = require('./futility');
 
 const obj = [{ a: 1, b: {j: new Date()} }, {c: 3, d: 4}];
 

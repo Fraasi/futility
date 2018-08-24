@@ -2,22 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: futility.js</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>futility.js - Documentation</title>
 
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
 </head>
-
 <body>
 
-<div id="main">
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
 
-    <h1 class="page-title">Source: futility.js</h1>
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-futility.html">futility</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-futility.html#.cloneObject">cloneObject</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-futility.html#.dateToHMS">dateToHMS</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-futility.html#.mapN">mapN</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-futility.html#.PercentageOf">PercentageOf</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-futility.html#.secondsToDhms">secondsToDhms</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-futility.html#.swapObject">swapObject</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">futility.js</h1>
+    
 
     
 
@@ -27,9 +40,10 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Futility
+ * @author Fraasi
+ * @file Little utility library - {@link https://github.com/Fraasi/futility|Github repo}
  * @module futility
-*/
+ */
 module.exports = {
 	/**
 	 * Swap Object keys and values
@@ -47,6 +61,7 @@ module.exports = {
 	/**
 	 * Recursive function to deep clone an object. If a non object parameter
 	 * is passed in, that parameter is returned and no recursion occurs.
+	 * @see {@link https://heyjavascript.com/4-creative-ways-to-clone-objects/}
 	 * @param {(object|array)} obj Object to be cloned
 	 * @returns {object} Cloned object
 	 */
@@ -65,13 +80,14 @@ module.exports = {
 	},
 
 	/**
-	 * p5.prototype.map() - https://p5js.org/reference/#/p5/map
+	 * Maps given number from one range to another
+	 * @see {@link https://p5js.org/reference/#/p5/map|p5.prototype.map()}
 	 * @param {number} n A positive or negative number
 	 * @param {number} start1 Min possible value for n
 	 * @param {number} stop1 Max possible value for n
 	 * @param {number} start2 Min value for new range
 	 * @param {number} stop2 Max value for new range
-	 * @returns {number} Calculated n for given range
+	 * @returns {number} Calculated n for new range
 	 */
 	mapN(n, start1, stop1, start2, stop2) {
 		return ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
@@ -81,22 +97,11 @@ module.exports = {
 	 *  Calculate Percentage of
 	 * @param {number} num
 	 * @param {number} ofnum
-	 * @param {number} [fix=0] how many decimals
+	 * @param {number} [fix=0] Decimals
 	 * @returns {number} ( (num / ofnum) * 100 ).toFixed(fix)
 	 */
 	PercentageOf(num, ofnum, fix = 0) {
 		return ((num / ofnum) * 100).toFixed(fix);
-	},
-
-	/**
-	 * es6 style swap values, no more temp variable
-	 * @param {*} a
-	 * @param {*} b
-	 * @returns {array} Array with values swapped -> [b, a]
-	 */
-	swapValues(a, b) {
-		const [c, d] = [b, a];
-		return [c, d];
 	},
 
 	/**
@@ -119,7 +124,7 @@ module.exports = {
 		return dDisplay + hDisplay + mDisplay + sDisplay;
 	},
 
-	/**
+	/** convert date object or number to HH:MM:SS
 	 * dateToHMS
 	 * @param {(object|number)} [date=new Date()] Date object or date in milliseconds
 	 * @returns {string} Time in HH:MM:SS format
@@ -146,17 +151,13 @@ module.exports = {
 
 </div>
 
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-futility.html">futility</a></li></ul>
-</nav>
-
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Aug 23 2018 11:33:46 GMT+0300 (FLE Daylight Time)
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Aug 24 2018 16:08:51 GMT+0300 (FLE Daylight Time) using the Minami theme.
 </footer>
 
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
 </body>
 </html>

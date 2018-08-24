@@ -1,7 +1,8 @@
 /**
- * Futility
+ * @author Fraasi
+ * @file Little utility library - {@link https://github.com/Fraasi/futility|Github repo}
  * @module futility
-*/
+ */
 module.exports = {
 	/**
 	 * Swap Object keys and values
@@ -19,6 +20,7 @@ module.exports = {
 	/**
 	 * Recursive function to deep clone an object. If a non object parameter
 	 * is passed in, that parameter is returned and no recursion occurs.
+	 * @see {@link https://heyjavascript.com/4-creative-ways-to-clone-objects/}
 	 * @param {(object|array)} obj Object to be cloned
 	 * @returns {object} Cloned object
 	 */
@@ -37,13 +39,14 @@ module.exports = {
 	},
 
 	/**
-	 * p5.prototype.map() - https://p5js.org/reference/#/p5/map
+	 * Maps given number from one range to another
+	 * @see {@link https://p5js.org/reference/#/p5/map|p5.prototype.map()}
 	 * @param {number} n A positive or negative number
 	 * @param {number} start1 Min possible value for n
 	 * @param {number} stop1 Max possible value for n
 	 * @param {number} start2 Min value for new range
 	 * @param {number} stop2 Max value for new range
-	 * @returns {number} Calculated n for given range
+	 * @returns {number} Calculated n for new range
 	 */
 	mapN(n, start1, stop1, start2, stop2) {
 		return ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
@@ -53,22 +56,11 @@ module.exports = {
 	 *  Calculate Percentage of
 	 * @param {number} num
 	 * @param {number} ofnum
-	 * @param {number} [fix=0] how many decimals
+	 * @param {number} [fix=0] Decimals
 	 * @returns {number} ( (num / ofnum) * 100 ).toFixed(fix)
 	 */
 	PercentageOf(num, ofnum, fix = 0) {
 		return ((num / ofnum) * 100).toFixed(fix);
-	},
-
-	/**
-	 * es6 style swap values, no more temp variable
-	 * @param {*} a
-	 * @param {*} b
-	 * @returns {array} Array with values swapped -> [b, a]
-	 */
-	swapValues(a, b) {
-		const [c, d] = [b, a];
-		return [c, d];
 	},
 
 	/**
@@ -91,7 +83,7 @@ module.exports = {
 		return dDisplay + hDisplay + mDisplay + sDisplay;
 	},
 
-	/**
+	/** convert date object or number to HH:MM:SS
 	 * dateToHMS
 	 * @param {(object|number)} [date=new Date()] Date object or date in milliseconds
 	 * @returns {string} Time in HH:MM:SS format
