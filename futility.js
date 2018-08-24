@@ -53,14 +53,14 @@ module.exports = {
 	},
 
 	/**
-	 *  Calculate Percentage of
+	 *  Calculate percentage: <b><i>num</i></b> is what percent of <b><i>ofnum</i></b>
 	 * @param {number} num
 	 * @param {number} ofnum
 	 * @param {number} [fix=0] Decimals
 	 * @returns {number} ( (num / ofnum) * 100 ).toFixed(fix)
 	 */
 	PercentageOf(num, ofnum, fix = 0) {
-		return ((num / ofnum) * 100).toFixed(fix);
+		return Number(((num / ofnum) * 100).toFixed(fix));
 	},
 
 	/**
@@ -70,11 +70,11 @@ module.exports = {
 	 * @returns {string} short: 14d 6h 53m 0s or long: 14 days, 6 hours, 53 minutes, 0 seconds
 	 */
 	secondsToDhms(secs, long = false) {
-		if (isNaN(secs)) return 'secondsToHms param not a number!';
+		if (isNaN(secs)) return 'secondsToHms parameter not a number!';
 		const d = Math.floor(secs / (3600 * 24));
 		const h = Math.floor((secs / 3600) % 24);
-		const m = Math.floor(secs % (3600 / 60));
-		const s = Math.floor(secs % 3600 % 60);
+		const m = Math.floor((secs / 60) % 60);
+		const s = Math.floor(secs % 60);
 
 		const dDisplay = d > 0 ? d + (long ? (d === 1 ? ' day, ' : ' days, ') : 'd ') : '';
 		const hDisplay = h >= 0 ? h + (long ? (h === 1 ? ' hour, ' : ' hours, ') : 'h ') : '';
@@ -95,9 +95,6 @@ module.exports = {
 		if (!isNaN(date)) {
 			date = new Date(date);
 		}
-		const H = date.getHours();
-		const M = date.getMinutes();
-		const S = date.getSeconds();
-		return `${H < 10 ? `0${H}` : H}:${M < 10 ? `0${M}` : M}:${S < 10 ? `0${S}` : S}`;
+		return date.toTimeString().slice(0, 8);
 	},
 };
