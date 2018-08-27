@@ -18,5 +18,11 @@
     "jsdoc": "^3.5.5",
     "minami": "^1.2.3"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "files": [
+    "README.md",
+    "package.json",
+    "futility.test.js",
+    "futility.js"
+  ]
 }

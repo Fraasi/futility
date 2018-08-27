@@ -83,8 +83,8 @@ module.exports = {
 		return dDisplay + hDisplay + mDisplay + sDisplay;
 	},
 
-	/** convert date object or number to HH:MM:SS
-	 * dateToHMS
+	/**
+	 * Convert date object or number to HH:MM:SS
 	 * @param {(object|number)} [date=new Date()] Date object or date in milliseconds
 	 * @returns {string} Time in HH:MM:SS format
 	 */
