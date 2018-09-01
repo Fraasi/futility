@@ -3,15 +3,20 @@
  * @file Little utility library - {@link https://github.com/Fraasi/futility|Github repo}
  * @module futility
  */
+// Keep helper vars out of export
+let _timerId = null;
+
 module.exports = {
 	/**
 	 * Swap Object keys and values
 	 * @param {object} obj
+	 * @throws {TypeError} Throws error if value is not a String
 	 * @returns {object} Object with keys & values swapped
 	 */
 	swapObject: (obj) => {
 		const swapped = {};
 		Object.keys(obj).forEach((key) => {
+			if (typeof obj[key] !== 'string') throw new TypeError('swapObject value must be a string!');
 			swapped[obj[key]] = key;
 		});
 		return swapped;
@@ -96,5 +101,20 @@ module.exports = {
 			date = new Date(date);
 		}
 		return date.toTimeString().slice(0, 8);
+	},
+
+	/**
+	 * Debounce costly functions on scroll/resize etc
+	 * @param {function} func Function to run after delay
+	 * @param {number} [timeout=1000] Delay in milliseconds
+	 * @returns {number} TimerId if you want to clear timeout before function runs
+	 */
+	deBounce: (func, timeout = 1000) => {
+		if (typeof func !== 'function') throw new TypeError('Debounce first argument must be a function!');
+			clearTimeout(_timerId);
+			_timerId = setTimeout(() => {
+				func();
+			}, timeout);
+		return _timerId;
 	},
 };
