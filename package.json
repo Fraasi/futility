@@ -1,7 +1,7 @@
 {
   "name": "futility",
   "version": "0.0.3",
-  "description": "",
+  "description": "A little utility library",
   "main": "futility.js",
   "scripts": {
     "test": "jest futility.test.js",
@@ -9,6 +9,10 @@
     "docs": "./node_modules/.bin/jsdoc futility.js -d ./docs -R README.md -t ./node_modules/minami -c ./.jsdocrc.json"
   },
   "author": "Fraasi <fraasi.gh@gmail.com> (https://github.com/fraasi/)",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/fraasi/futility.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "eslint": "^5.4.0",

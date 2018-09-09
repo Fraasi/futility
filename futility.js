@@ -1,5 +1,5 @@
 /**
- * @author Fraasi
+ * @author {@link https://github.com/Fraasi|Fraasi}
  * @file Little utility library - {@link https://github.com/Fraasi/futility|Github repo}
  * @module futility
  */
@@ -121,7 +121,9 @@ module.exports = {
   },
 
   /**
-   * Random number or item from array
+   * Random number or item from array  
+   * @example random(5, 10) // returns floating point number between 5 and 10
+   * Math.round(random(10)) // returns integer between 0 and 10
    * @param {number|array} [min] Minimum number or array
    * @param {number} [max] Maximum number
    * @returns {mixed} If no parameters, a random number between 0 and 1  
@@ -131,16 +133,10 @@ module.exports = {
    */
   random: function random(min, max) {
     const rand = Math.random();
-    if (arguments.length === 0) {
-      return rand;
-    }
+    if (arguments.length === 0) return rand;
     if (arguments.length === 1) {
-      if (typeof min === 'number') {
-        return rand * min;
-      }
-      if (Array.isArray(min)) {
-        return min[Math.floor(rand * min.length)];
-      }
+      if (typeof min === 'number') return rand * min;
+      if (Array.isArray(min)) return min[Math.floor(rand * min.length)];
     }
     if (arguments.length === 2) {
       if (min > max) {
