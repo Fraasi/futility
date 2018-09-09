@@ -1,12 +1,12 @@
 {
   "name": "futility",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "futility.js",
   "scripts": {
     "test": "jest futility.test.js",
     "predocs": "rmdir docs /s /q",
-    "docs": "./node_modules/.bin/jsdoc futility.js -d ./docs -R README.md -t ./node_modules/minami"
+    "docs": "./node_modules/.bin/jsdoc futility.js -d ./docs -R README.md -t ./node_modules/minami -c ./.jsdocrc.json"
   },
   "author": "Fraasi <fraasi.gh@gmail.com> (https://github.com/fraasi/)",
   "license": "ISC",

@@ -26,12 +26,12 @@ describe('dateToHMS', () => {
 
 describe('percentageOF', () => {
 	test('23%? of 87', () => {
-		expect(F.PercentageOf(23, 87))
+		expect(F.percentageOf(23, 87))
 			.toBe(26);
 	});
 
 	test('452%? of 1210 toFixed(1)', () => {
-		expect(F.PercentageOf(452, 1210, 1))
+		expect(F.percentageOf(452, 1210, 1))
 			.toBe(37.4);
 	});
 });
@@ -114,5 +114,28 @@ describe('swapObject', () => {
 	test('should swap wihout errors', () => {
 		expect(F.swapObject(testObj2))
 		.toEqual(testObj3);
+	});
+});
+
+describe('random', () => {
+	test('should return random number 0-1', () => {
+		expect(F.random()).toBeGreaterThanOrEqual(0);
+		expect(F.random()).toBeLessThanOrEqual(1);
+	});
+	test('should return random item from array', () => {
+		const arr = ['a1', 'a2', 'a3'];
+		expect(F.random(arr)).toEqual(expect.stringContaining('a'));
+	});
+	test('should return random number between 10 & 15', () => {
+		expect(F.random(10, 15)).toBeGreaterThanOrEqual(10);
+		expect(F.random(10, 15)).toBeLessThanOrEqual(15);
+		expect(F.random(15, 10)).toBeLessThanOrEqual(15);
+	});
+	test('should return random number between 0 & 10', () => {
+		expect(F.random(10)).toBeGreaterThanOrEqual(0);
+		expect(F.random(10)).toBeLessThanOrEqual(10);
+	});
+	test('should return Err', () => {
+		expect(F.random('as')).toEqual(expect.stringMatching('Err'));
 	});
 });
