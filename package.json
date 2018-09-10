@@ -1,12 +1,12 @@
 {
   "name": "futility",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A little utility library",
   "main": "lib/futility.js",
   "scripts": {
     "test": "jest futility.test.js",
     "predocs": "rmdir docs /s /q",
-    "docs": "./node_modules/.bin/jsdoc ./lib/futility.js -d ./docs -R README.md -t ./node_modules/minami -c ./.jsdocrc.json"
+    "docs": "./node_modules/.bin/jsdoc ./lib/ -d ./docs -R README.md -t ./node_modules/minami -c ./.jsdocrc.json"
   },
   "author": "Fraasi <fraasi.gh@gmail.com> (https://github.com/fraasi/)",
   "repository": {

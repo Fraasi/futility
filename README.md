@@ -7,7 +7,8 @@ Little utility library
 
 ```javascript
 const F = require('futility'); // F contains all the methods
-const { cloneObject } = require('futility'); // require only certain function(s)
+const { clone } = require('futility'); // require only certain function(s)
+const clone = require('futility/clone'); // or lodash style to save on import cost
 ```  
 
 ## [Documentation](https://fraasi.github.io/futility/)

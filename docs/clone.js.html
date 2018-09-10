@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>futility - Documentation</title>
+    <title>clone.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,135 +29,41 @@
 
 <div id="main">
     
-    <h1 class="page-title">futility</h1>
+    <h1 class="page-title">clone.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-            
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Recursive function to deep clone an object. If a non object parameter
+ * is passed in, that parameter is returned and no recursion occurs.
+ * @see {@link https://heyjavascript.com/4-creative-ways-to-clone-objects/}
+ * @param {(object|array)} obj Object to be cloned
+ * @returns {object} Cloned object
+ */
+function clone(obj) {
+  if (obj === null || typeof obj !== 'object') return obj;
+  if (obj instanceof Date) {
+    const copy = new Date();
+    copy.setTime(obj.getTime());
+    return copy;
+  }
+  const temp = new obj.constructor(); // give temp the original obj's constructor
+  Object.keys(obj).forEach((key) => {
+    temp[key] = clone(obj[key]);
+  });
+  return temp;
+}
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Little utility library - <a href="https://github.com/Fraasi/futility">Github repo</a></p></div>
-        
-
-        
-            
-<div class="section-method">
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li><a href="https://github.com/Fraasi">Fraasi</a></li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="futility.js.html">futility.js</a>, <a href="futility.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+module.exports = clone;
+</code></pre>
+        </article>
+    </section>
 
 
 

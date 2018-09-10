@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>futility - Documentation</title>
+    <title>dateToHMS.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,135 +29,36 @@
 
 <div id="main">
     
-    <h1 class="page-title">futility</h1>
+    <h1 class="page-title">dateToHMS.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-            
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Convert date object or number to HH:MM:SS
+ * @param {(object|number)} [date=new Date()] Date object or date in milliseconds
+ * @throws Error if param is not a date object or number
+ * @returns {string} Time in HH:MM:SS format
+ */
+function dateToHMS(date = new Date()) {
+  if (!(date instanceof Date) &amp;&amp; isNaN(date)) {
+    throw new Error('dateToHMS param must be Date object or number!');
+  }
+  if (!isNaN(date)) {
+    date = new Date(date);
+  }
+  return date.toTimeString().slice(0, 8);
+}
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Little utility library - <a href="https://github.com/Fraasi/futility">Github repo</a></p></div>
-        
-
-        
-            
-<div class="section-method">
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li><a href="https://github.com/Fraasi">Fraasi</a></li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="futility.js.html">futility.js</a>, <a href="futility.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+module.exports = dateToHMS;
+</code></pre>
+        </article>
+    </section>
 
 
 

@@ -1,13 +1,14 @@
 /* eslint-disable no-undef */
 const F = require('./lib/futility.js');
+const mapN = require('./lib/mapN');
 
 describe('mapN', () => {
 	test('mapN 5 from 0-10 to 0-100', () => {
-		expect(F.mapN(5, 0, 10, 0, 100))
+		expect(mapN(5, 0, 10, 0, 100))
 			.toBe(50);
 	});
 	test('mapN -5 from 0-10 to 0-100', () => {
-		expect(F.mapN(-5, -10, 10, -100, 100))
+		expect(mapN(-5, -10, 10, -100, 100))
 			.not.toBe(50);
 	});
 });

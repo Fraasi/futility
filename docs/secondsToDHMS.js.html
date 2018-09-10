@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>futility - Documentation</title>
+    <title>secondsToDHMS.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,135 +29,41 @@
 
 <div id="main">
     
-    <h1 class="page-title">futility</h1>
+    <h1 class="page-title">secondsToDHMS.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-            
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Convert seconds to display time
+ * @param {number} secs Number in seconds
+ * @param {boolean} [long=false] Boolean to choose short or long display
+ * @returns {string} short: 14d 6h 53m 0s  
+ * long: 14 days, 6 hours, 53 minutes, 0 seconds
+ */
+function secondsToDHMS(secs, long = false) {
+  if (isNaN(secs)) return 'secondsToHms parameter not a number!';
+  const d = Math.floor(secs / (3600 * 24));
+  const h = Math.floor((secs / 3600) % 24);
+  const m = Math.floor((secs / 60) % 60);
+  const s = Math.floor(secs % 60);
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Little utility library - <a href="https://github.com/Fraasi/futility">Github repo</a></p></div>
-        
+  const dDisplay = d > 0 ? d + (long ? (d === 1 ? ' day, ' : ' days, ') : 'd ') : '';
+  const hDisplay = h >= 0 ? h + (long ? (h === 1 ? ' hour, ' : ' hours, ') : 'h ') : '';
+  const mDisplay = m >= 0 ? m + (long ? (m === 1 ? ' minute, ' : ' minutes, ') : 'm ') : '';
+  const sDisplay = s >= 0 ? s + (long ? (s === 1 ? ' second' : ' seconds') : 's') : '';
+  return dDisplay + hDisplay + mDisplay + sDisplay;
+}
 
-        
-            
-<div class="section-method">
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li><a href="https://github.com/Fraasi">Fraasi</a></li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="futility.js.html">futility.js</a>, <a href="futility.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+module.exports = secondsToDHMS;
+</code></pre>
+        </article>
+    </section>
 
 
 

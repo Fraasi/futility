@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>futility - Documentation</title>
+    <title>mapN.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,135 +29,34 @@
 
 <div id="main">
     
-    <h1 class="page-title">futility</h1>
+    <h1 class="page-title">mapN.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-            
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Maps given number from one range to another
+ * @see {@link https://p5js.org/reference/#/p5/map|p5.prototype.map()}
+ * @param {number} n A positive or negative number
+ * @param {number} start1 Min possible value for n
+ * @param {number} stop1 Max possible value for n
+ * @param {number} start2 Min value for new range
+ * @param {number} stop2 Max value for new range
+ * @returns {number} Calculated n for new range
+ */
+function mapN(n, start1, stop1, start2, stop2) {
+  return ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
+}
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Little utility library - <a href="https://github.com/Fraasi/futility">Github repo</a></p></div>
-        
-
-        
-            
-<div class="section-method">
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li><a href="https://github.com/Fraasi">Fraasi</a></li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="futility.js.html">futility.js</a>, <a href="futility.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+module.exports = mapN;
+</code></pre>
+        </article>
+    </section>
 
 
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>futility - Documentation</title>
+    <title>percentageOf.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,135 +29,31 @@
 
 <div id="main">
     
-    <h1 class="page-title">futility</h1>
+    <h1 class="page-title">percentageOf.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-            
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ *  Calculate percentage: ***num*** is what percent of ***ofnum***
+ * @param {number} num
+ * @param {number} ofnum
+ * @param {number} [dec=0] Decimals
+ * @returns {number} ( (num / ofnum) * 100 ).toFixed(fix)
+ */
+function percentageOf(num, ofnum, dec = 0) {
+  return Number(((num / ofnum) * 100).toFixed(dec));
+}
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Little utility library - <a href="https://github.com/Fraasi/futility">Github repo</a></p></div>
-        
-
-        
-            
-<div class="section-method">
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li><a href="https://github.com/Fraasi">Fraasi</a></li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="futility.js.html">futility.js</a>, <a href="futility.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+module.exports = percentageOf;
+</code></pre>
+        </article>
+    </section>
 
 
 
