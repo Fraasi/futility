@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const F = require('./futility.js');
+const F = require('./lib/futility.js');
 
 describe('mapN', () => {
 	test('mapN 5 from 0-10 to 0-100', () => {
@@ -43,17 +43,18 @@ const testObj = {
 };
 
 describe('cloneObject', () => {
-	const obj2 = F.cloneObject(testObj);
+	const obj2 = F.clone(testObj);
 	obj2.a[1].d = 170;
 	test('testObj to be not same as cloned & modified object', () => {
 		expect(obj2)
 			.not.toBe(testObj);
 	});
+
 	test('testObj to be not equal to cloned & modified object', () => {
 		expect(obj2)
 			.not.toEqual(testObj);
 	});
-	const obj3 = F.cloneObject(testObj);
+	const obj3 = F.clone(testObj);
 	test('testObj with date to not be same as cloned', () => {
 		expect(obj3)
 			.not.toBe(testObj);
@@ -64,17 +65,17 @@ describe('cloneObject', () => {
 	});
 });
 
-describe('secsToDHMS', () => {
+describe('secondsToDHMS', () => {
 	test('3642, false', () => {
-		expect(F.secondsToDhms(3642, false))
+		expect(F.secondsToDHMS(3642, false))
 			.toBe('1h 0m 42s');
 	});
 	test('14234380, true', () => {
-		expect(F.secondsToDhms(14234380, true))
+		expect(F.secondsToDHMS(14234380, true))
 			.toBe('164 days, 17 hours, 59 minutes, 40 seconds');
 	});
 	test('123456789', () => {
-		expect(F.secondsToDhms(123456789))
+		expect(F.secondsToDHMS(123456789))
 			.toBe('1428d 21h 33m 9s');
 	});
 });
@@ -91,29 +92,6 @@ describe('deBounce', () => {
 			F.deBounce(2000);
 		})
 		.toThrow(TypeError);
-	});
-});
-
-describe('swapObject', () => {
-	const testObj2 = {
-		a: 'aa',
-		b: 'bb',
-		c: 'string',
-	};
-	const testObj3 = {
-		aa: 'a',
-		bb: 'b',
-		string: 'c',
-	};
-	test('should throw if value is not a string', () => {
-		expect(() => {
-			F.swapObject(testObj)
-			.toThrow(TypeError);
-		});
-	});
-	test('should swap wihout errors', () => {
-		expect(F.swapObject(testObj2))
-		.toEqual(testObj3);
 	});
 });
 
