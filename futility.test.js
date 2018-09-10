@@ -118,3 +118,10 @@ describe('random', () => {
 		expect(F.random('as')).toEqual(expect.stringMatching('Err'));
 	});
 });
+
+describe('YYYYMMDD', () => {
+	test('should return 2361/03/21 & 2009-02-14', () => {
+		expect(F.YYYYMMDD(new Date(12345678909876))).toBe('2361/03/21');
+		expect(F.YYYYMMDD(new Date(1234567890987), '-')).toBe('2009-02-14');
+	});
+});
