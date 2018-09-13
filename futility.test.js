@@ -125,3 +125,16 @@ describe('YYYYMMDD', () => {
 		expect(F.YYYYMMDD(new Date(1234567890987), '-')).toBe('2009-02-14');
 	});
 });
+
+describe('parseDate', () => {
+	const date = new Date(2012, 11, 31, 23, 59, 59);
+	test('should return 2012/12/31, 11:59:59 PM', () => {
+		expect(F.parseDate(date, undefined, undefined, true, true)).toBe('2012/12/31, 11:59:59 PM');
+	});
+	test('should return 13-09-2018, 14:04:23', () => {
+		expect(F.parseDate(new Date('2018-09-13, 14:04:23'), '-')).toBe('13-09-2018, 14:04:23');
+	});
+	test('should return 13-09-2018', () => {
+		expect(F.parseDate(new Date('2018-09-13, 14:04:23'), '-', false)).toBe('13-09-2018');
+	});
+});
