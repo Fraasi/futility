@@ -1,9 +1,9 @@
 ## Futility
-Little utility library
+Little utility library. See documentation for all available methods and how to use them.
 
 ## Usage
 
-`$ npm i fraasi/futility`  
+`$ npm install fraasi/futility`  
 
 ```javascript
 const F = require('futility'); // F contains all the methods

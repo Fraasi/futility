@@ -18,7 +18,6 @@ describe('dateToHMS', () => {
 		expect(F.dateToHMS(new Date(2000, 3, 2, 12, 12, 12)))
 			.toBe('12:12:12');
 	});
-
 	test('Seconds to HH:MM:SS', () => {
 		expect(F.dateToHMS(123456789))
 			.toBe('12:17:36');
@@ -30,27 +29,25 @@ describe('percentageOF', () => {
 		expect(F.percentageOf(23, 87))
 			.toBe(26);
 	});
-
 	test('452%? of 1210 toFixed(1)', () => {
 		expect(F.percentageOf(452, 1210, 1))
 			.toBe(37.4);
 	});
 });
 
-const testObj = {
-	a: [{ a: 1, b: { j: new Date() } }, { c: 3, d: 4 }],
-	b: 2,
-	c: 'string',
-};
-
 describe('cloneObject', () => {
+	const testObj = {
+		a: [{ a: 1, b: { j: new Date() } }, { c: 3, d: 4 }],
+		b: 2,
+		c: 'string',
+	};
 	const obj2 = F.clone(testObj);
 	obj2.a[1].d = 170;
+
 	test('testObj to be not same as cloned & modified object', () => {
 		expect(obj2)
 			.not.toBe(testObj);
 	});
-
 	test('testObj to be not equal to cloned & modified object', () => {
 		expect(obj2)
 			.not.toEqual(testObj);
@@ -88,7 +85,7 @@ describe('deBounce', () => {
 		}))
 		.toBeGreaterThan(20);
 	});
-	test('throw typeerror if first param is not a function', () => {
+	test('throw typeError if first param is not a function', () => {
 		expect(() => {
 			F.deBounce(2000);
 		})
@@ -116,13 +113,6 @@ describe('random', () => {
 	});
 	test('should return Err', () => {
 		expect(F.random('as')).toEqual(expect.stringMatching('Err'));
-	});
-});
-
-describe('YYYYMMDD', () => {
-	test('should return 2361/03/21 & 2009-02-14', () => {
-		expect(F.YYYYMMDD(new Date(12345678909876))).toBe('2361/03/21');
-		expect(F.YYYYMMDD(new Date(1234567890987), '-')).toBe('2009-02-14');
 	});
 });
 

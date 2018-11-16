@@ -1,6 +1,6 @@
 {
   "name": "futility",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A little utility library",
   "main": "lib/futility.js",
   "scripts": {
@@ -10,15 +10,15 @@
   },
   "author": "Fraasi <fraasi.gh@gmail.com> (https://github.com/fraasi/)",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/fraasi/futility.git"
+    "type": "git",
+    "url": "https://github.com/fraasi/futility.git"
   },
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^5.4.0",
+    "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "jest": "^23.5.0",
+    "jest": "^23.6.0",
     "jsdoc": "^3.5.5",
     "minami": "^1.2.3"
   },
